@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>用户信息</title>
+    <h1 align="center">用户列表</h1>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		html,body{width:100%;}
+		body {
+			user-select:none;
+			background: #E6EAE9;
+		}
+		#main{
+			width:960px;
+			margin: 10px auto;
+		}
+		#mytable {width: 100%;}
+		tr{
+			background: #fff;
+			color: #4f6b72;
+		}
+		th{
+			font: bold 18px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+			color: #fff;
+			border-right: 1px solid #C1DAD7;
+			border-bottom: 1px solid #C1DAD7;
+			border-top: 1px solid #C1DAD7;
+			letter-spacing: 2px;
+			text-align: left;
+			padding: 6px 6px 6px 12px;
+			background: #0098a2 no-repeat;
+		}
+		td{
+			border-right: 1px solid #C1DAD7;
+			border-bottom: 1px solid #C1DAD7;
+			font-size:16px;
+			padding: 6px 6px 6px 12px;
+		}
+		.tr1{
+			background-color: #269fa7;
+			color:white;
+		}
+		.tr2{background-color: white;}
+	</style>
+</head>
+<body>
+<div id="main">
+	<table id="mytable" width="100%" cellspacing="0px" cellpadding="0px">
+
+
+		<tr><th>序号</th><th>姓名</th><th>密码</th></tr>
+         {% for item in data_list %}
+		<tr>
+            <td>{{ item.uid }}</td>
+            <td>{{ item.uname }}</td>
+            <td>{{ item.upwd }}</td>
+        </tr>
+
+        {% endfor %}
+	</table>
+</div>
+</body>
+<script>
+
+let aTr = document.getElementsByTagName("tr");
+for(let i=1;i<aTr.length;i++){
+    aTr[i].onmouseover = function(){
+        aTr[i].className = "tr1";
+    }
+    aTr[i].onmouseout = function(){
+        aTr[i].className = "tr2";
+    }
+}
+
+</script>
+</html>
